@@ -9,5 +9,18 @@
         android:id="@+id/listadoRazas"
         android:name="com.example.apiperros.presentacion.ListadoRazas"
         android:label="fragment_listado_razas"
-        tools:layout="@layout/fragment_listado_razas" />
+        tools:layout="@layout/fragment_listado_razas" >
+        <action
+            android:id="@+id/action_listadoRazas_to_fragmentDetalle"
+            app:destination="@id/fragmentDetalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetalle"
+        android:name="com.example.apiperros.presentacion.FragmentDetalle"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_fragmentDetalle_to_listadoRazas"
+            app:destination="@id/listadoRazas" />
+    </fragment>
 </navigation>
