@@ -18,7 +18,6 @@ class RazaViewModel(application: Application) : AndroidViewModel(application) {
         repositorio = Repositorio(api, razaDataBase)
 
     }
-
     fun getAllRazas() = viewModelScope.launch {
         repositorio.getRazas()
     }
