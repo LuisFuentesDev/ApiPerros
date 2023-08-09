@@ -12,7 +12,7 @@ interface RazaDao {
 
     suspend fun insertRaza(razaEntity: RazaEntity)
 
-    @Query("SELECT * FROM tabla_razas order by raza desc")
-    fun getRazas(): LiveData<RazaEntity>
+    @Query("SELECT * FROM tabla_razas order by raza asc")
+    fun getRazas(): LiveData<List<RazaEntity>>
 
 }

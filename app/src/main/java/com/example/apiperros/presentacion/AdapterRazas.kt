@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apiperros.data.local.RazaEntity
-import com.example.apiperros.databinding.FragmentListadoRazasBinding
 import com.example.apiperros.databinding.ItemRazasBinding
 
 class AdapterRazas : RecyclerView.Adapter<AdapterRazas.ItemRazasViewHolder>() {
