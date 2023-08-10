@@ -31,13 +31,17 @@ class FragmentDetalle : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetalleBinding.inflate(layoutInflater, container, false)
-        // initAdapter()
+        initAdapter()
         razaViewModel.getDetallePerroVM(param1.toString())
         return binding.root
     }
 
     private fun initAdapter() {
-
+        val adapter = AdapterDetalle()
+        binding.recyclerViewDetalle.adapter = adapter
+        razaViewModel.detalleLiveData(param1.toString()).observe(viewLifecycleOwner){
+        adapter.setDetalle(it)
+        }
     }
 
 
