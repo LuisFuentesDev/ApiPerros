@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [RazaEntity::class], version = 1)
+@Database(entities = [RazaEntity::class,RazaDetalleEntity::class], version = 1)
 abstract class RazaDataBase : RoomDatabase() {
     abstract fun getRazaDao(): RazaDao
 

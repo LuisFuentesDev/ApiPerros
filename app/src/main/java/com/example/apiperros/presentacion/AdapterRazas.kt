@@ -1,5 +1,6 @@
 package com.example.apiperros.presentacion
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -41,8 +42,10 @@ class AdapterRazas : RecyclerView.Adapter<AdapterRazas.ItemRazasViewHolder>() {
         fun bind(raza: RazaEntity) {
             razasVista.txtRaza.text = raza.raza
             razasVista.cardView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("id", raza.raza)
                 Navigation.findNavController(razasVista.root)
-                    .navigate(R.id.action_listadoRazas_to_fragmentDetalle)
+                    .navigate(R.id.action_listadoRazas_to_fragmentDetalle, bundle)
             }
         }
     }

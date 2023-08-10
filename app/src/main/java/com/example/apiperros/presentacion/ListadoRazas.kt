@@ -38,6 +38,7 @@ class ListadoRazas : Fragment() {
         binding.recyclerView.adapter = adapter
         razaViewModel.razaLiveData().observe(viewLifecycleOwner){
             adapter.setData(it)
+
         }
 
     }
