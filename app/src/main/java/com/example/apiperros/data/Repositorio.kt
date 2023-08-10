@@ -10,6 +10,8 @@ import com.example.apiperros.data.remote.RazaApi
 class Repositorio(private val razaApi: RazaApi, private val razaDao: RazaDao) {
 
     fun obtenerRazaEntity(): LiveData<List<RazaEntity>> = razaDao.getRazas()
+
+    fun obtenerDetalleEntity(id: String): LiveData<List<RazaDetalleEntity>> = razaDao.getRazaDetalle(id)
     suspend fun getRazas() {
         val response = razaApi.getData()
         if (response.isSuccessful) {
