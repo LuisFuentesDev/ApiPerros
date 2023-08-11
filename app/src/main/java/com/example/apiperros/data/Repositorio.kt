@@ -6,6 +6,7 @@ import com.example.apiperros.data.local.RazaDao
 import com.example.apiperros.data.local.RazaDetalleEntity
 import com.example.apiperros.data.local.RazaEntity
 import com.example.apiperros.data.remote.RazaApi
+import com.example.apiperros.data.remote.toEntity
 
 class Repositorio(private val razaApi: RazaApi, private val razaDao: RazaDao) {
 
@@ -30,8 +31,8 @@ class Repositorio(private val razaApi: RazaApi, private val razaDao: RazaDao) {
     suspend fun getDetallePerro(id: String) {
         val response = razaApi.getDetallePerro(id)
         if (response.isSuccessful) {
-            response.body()!!.message.forEach {
-                val razaDetalleEntity = RazaDetalleEntity(id, it)
+            response.body()!!.message.forEach {url ->
+                val razaDetalleEntity = url.toEntity(id) //transformando para el TEST (de remoto a entity)
                 razaDao.insertDetallePerro(razaDetalleEntity)
             }
 
