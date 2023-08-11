@@ -23,4 +23,18 @@ class MapperTest {
         assertEquals(id,resultadoTransformacion.razaDetalle)
         assertEquals(url,resultadoTransformacion.url)
     }
+
+    @Test
+    fun toRazaEntity() {
+        //Given dado este valor
+
+        val raza = "nombreRaza"
+
+        //When hago esto
+
+        val resultadoTransformacionRaza = raza.toRazaEntity()
+
+        //Then espero este resultado
+        assertEquals(raza, resultadoTransformacionRaza.raza)
+    }
 }

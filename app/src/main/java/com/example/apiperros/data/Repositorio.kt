@@ -7,6 +7,7 @@ import com.example.apiperros.data.local.RazaDetalleEntity
 import com.example.apiperros.data.local.RazaEntity
 import com.example.apiperros.data.remote.RazaApi
 import com.example.apiperros.data.remote.toEntity
+import com.example.apiperros.data.remote.toRazaEntity
 
 class Repositorio(private val razaApi: RazaApi, private val razaDao: RazaDao) {
 
@@ -18,8 +19,8 @@ class Repositorio(private val razaApi: RazaApi, private val razaDao: RazaDao) {
         if (response.isSuccessful) {
             val message = response.body()!!.message
             val keys = message.keys
-            keys.forEach {
-                val razaEntity = RazaEntity(it)
+            keys.forEach {raza ->
+                val razaEntity = raza.toRazaEntity()
                 razaDao.insertRaza(razaEntity)
             }
 
