@@ -10,7 +10,8 @@ import androidx.room.Query
 interface RazaDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertRaza(razaEntity: RazaEntity)
-
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRaza(razaEntity: List<RazaEntity>)
     @Query("SELECT * FROM tabla_razas order by raza asc")
     fun getRazas(): LiveData<List<RazaEntity>>
 
